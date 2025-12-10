@@ -21,6 +21,7 @@ jobs:
         env:
           EMAIL: ${{ secrets.EMAIL }}
           PW: ${{ secrets.PW }}
+          CI: true
         run: npm run test
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
