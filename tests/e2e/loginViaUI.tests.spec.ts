@@ -23,11 +23,6 @@ test.describe(
       await loginPage.loginWithExistingAccount();
     });
 
-    test("debug secrets", { tag: "@testpipeline" }, () => {
-      console.log("EMAIL:", process.env.EMAIL ? "SET" : "MISSING");
-      console.log("PW:", process.env.PW ? "SET" : "MISSING");
-    });
-
     test(
       "Displays MyNotes app with Notes app logo, search bar, and filter buttons for all notes categories",
       async () => {
