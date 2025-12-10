@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test --project=chromium --workers=1",
+    "test": "npx playwright test --grep @testpipeline --project=chromium --workers=1",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "prettier:fix": "prettier --write .",

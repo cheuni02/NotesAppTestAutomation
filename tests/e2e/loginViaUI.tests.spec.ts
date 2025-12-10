@@ -23,7 +23,11 @@ test.describe(
       await loginPage.loginWithExistingAccount();
     });
 
-    test("Displays MyNotes app with Notes app logo, search bar, and filter buttons for all notes categories", async () => {
+    test("dummy test",{tag: "@testpipeline"}, ({ page })=> {
+      console.log("dummy test tested ...");
+    });
+
+    test("Displays MyNotes app with Notes app logo, search bar, and filter buttons for all notes categories",{ tag: "@testpipeline"} ,async () => {
       await expect(await notesPage.getLogoTitle()).toBeVisible();
       await expect(await notesPage.getSearchBar()).toBeVisible();
       const categoryList: string[] = ["all", "home", "work", "personal"];
