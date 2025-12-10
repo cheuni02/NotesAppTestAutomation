@@ -23,20 +23,20 @@ test.describe(
       await loginPage.loginWithExistingAccount();
     });
 
-    test("dummy test",{tag: "@testpipeline"}, ({ page })=> {
-      console.log("dummy test tested ...");
-    });
-
-    test("Displays MyNotes app with Notes app logo, search bar, and filter buttons for all notes categories",{ tag: "@testpipeline"} ,async () => {
-      await expect(await notesPage.getLogoTitle()).toBeVisible();
-      await expect(await notesPage.getSearchBar()).toBeVisible();
-      const categoryList: string[] = ["all", "home", "work", "personal"];
-      for (const category of categoryList) {
-        await expect(
-          await notesPage.getCategorySelectButton(category.toLowerCase())
-        ).toBeVisible();
+    test(
+      "Displays MyNotes app with Notes app logo, search bar, and filter buttons for all notes categories",
+      { tag: "@testpipeline" },
+      async () => {
+        await expect(await notesPage.getLogoTitle()).toBeVisible();
+        await expect(await notesPage.getSearchBar()).toBeVisible();
+        const categoryList: string[] = ["all", "home", "work", "personal"];
+        for (const category of categoryList) {
+          await expect(
+            await notesPage.getCategorySelectButton(category.toLowerCase())
+          ).toBeVisible();
+        }
       }
-    });
+    );
 
     test('Can logout using "logout" button on a browser with width 1500px, which will return me to /notes/app', async ({
       page

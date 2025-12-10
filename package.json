@@ -2,6 +2,7 @@
   "name": "notesapp",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "npx playwright test --grep @testpipeline --project=chromium --workers=1",
     "lint": "eslint . --ext .ts",

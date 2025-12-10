@@ -6,7 +6,17 @@ import { defineConfig, devices } from "@playwright/test";
  */
 import dotenv from "dotenv";
 import path from "path";
-dotenv.config({ path: path.resolve(__dirname, ".env") });
+import * as fs from "node:fs";
+
+// Load .env ONLY when not in CI and .env exists
+const envPath = path.resolve(__dirname, ".env");
+
+if (!process.env.CI && fs.existsSync(envPath)) {
+  dotenv.config({ path: envPath });
+  console.log("Loaded .env file for local development");
+} else {
+  console.log(".env not loaded (CI mode or missing file)");
+}
 
 /**
  * See https://playwright.dev/docs/test-configuration.
